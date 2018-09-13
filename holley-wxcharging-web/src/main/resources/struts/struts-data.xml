@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC  
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"  
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<!-- (订单管理)充电记录 详情 -->
+	<package name="stat" namespace="/stat" extends="struts-default">
+		<action name="chargingRecordMore" class="statAction" method="chargingRecordMore">
+			<result name="success">/jsp/stat/chargingRecordMore.jsp</result>
+		</action>
+	</package>
+	
+	<package name="record" namespace="/record" extends="struts-default">
+		<!-- (订单管理)充电记录 -->
+		<action name="chargingRecord" class="recordAction" method="chargingRecord">
+			<result name="success">/jsp/record/chargingRecord.jsp</result>
+		</action>
+		<!-- 充值记录 -->
+		<action name="rechargingRecord" class="recordAction" method="rechargingRecord">
+			<result name="success">/jsp/record/rechargingRecord.jsp</result>
+		</action>
+	</package>
+
+	<package name="account" namespace="/account" extends="struts-default">
+		<!-- 账户信息 (我的)-->
+		<action name="accountInfo" class="accountAction" method="accountInfo">
+			<result name="success">/jsp/account/accountInfo.jsp</result>
+		</action>
+		<!-- 账户余额 -->
+		<action name="accountRemain" class="accountAction" method="accountRemain">
+			<result name="success">/jsp/account/accountRemain.jsp</result>
+		</action>
+		<!-- 余额充值 -->
+		<action name="remainRecharge" class="accountAction" method="remainRecharge">
+			<result name="success">/jsp/account/remainRecharge.jsp</result>
+		</action>
+		<!-- 修改密码 -->
+		<action name="modifyPwd" class="accountAction" method="modifyPwd">
+			<result name="success">/jsp/account/modifyPwd.jsp</result>
+		</action>
+		<!-- 支付宝支付 -->
+		<action name="payfor" class="accountAction" method="payfor">
+			<result name="success">/jsp/account/payfor.jsp</result>
+		</action>
+		<!--  个人中心（个人信息） -->
+		<action name="userInfo" class="accountAction" method="userInfo">
+			<result name="success">/jsp/account/userInfo.jsp</result>
+		</action>
+	</package>
+	
+
+	<!-- 统计相关json -->
+	<package name="stat_json" namespace="/stat" extends="json-base">
+		<action name="stat_*" class="statAction" method="{1}">
+			<result type="json">
+				<param name="root">wxChargingResultBean</param>   
+			</result>
+		</action>
+	</package>
+	<!-- 记录相关json -->
+	<package name="record_json" namespace="/record" extends="json-base">
+		<action name="record_*" class="recordAction" method="{1}">
+			<result type="json">
+				<param name="root">wxChargingResultBean</param>   
+			</result>
+		</action>
+	</package>
+	<!-- 用户相关json -->
+	<package name="account_json" namespace="/account" extends="json-base">
+		<action name="account_*" class="accountAction" method="{1}">
+			<result type="json">
+				<param name="root">wxChargingResultBean</param>   
+			</result>
+		</action>
+	</package>
+</struts>

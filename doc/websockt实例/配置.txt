@@ -1,0 +1,3 @@
+struts.action.excludePattern=/ws/.*,ws://.*
+
+需要tomcat8.0以上

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC  
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"  
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<!--frame层 -->
+	<package name="frame" namespace="/frame" extends="struts-default">
+		<!-- register -->
+		<action name="register" class="frameAction" method="register">
+			<result name="success">/jsp/frame/register.jsp</result>
+		</action>
+		<!-- login -->
+		<action name="login" class="frameAction" method="login">
+			<result name="success">/jsp/frame/login.jsp</result>
+		</action>
+		<!-- telLogin -->
+		<action name="telLogin" class="frameAction" method="telLogin">
+			<result name="success">/jsp/frame/telLogin.jsp</result>
+		</action>
+		<!-- forgetPwd -->
+		<action name="forgetPwd" class="frameAction" method="forgetPwd">
+			<result name="success">/jsp/frame/forgetPwd.jsp</result>
+		</action>
+	</package>
+
+	<!-- frame层json -->
+	<package name="frame_json" namespace="/frame" extends="json-default">
+		<action name="frame_*" class="frameAction" method="{1}">
+			<result type="json">
+				<param name="root">wxChargingResultBean</param>   
+			</result>
+		</action>
+	</package>
+</struts>

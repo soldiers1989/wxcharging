@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:flex="http://www.springframework.org/schema/flex"
+	xsi:schemaLocation="       
+      http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd       
+      http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd       
+      http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.0.xsd       
+      http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd       
+      http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+      http://www.springframework.org/schema/flex http://www.springframework.org/schema/flex/spring-flex-1.5.xsd"
+	default-autowire="byName">
+	<context:annotation-config />
+	
+	<bean id="busAccountMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.holley.wxcharging.dao.bus.BusAccountMapper" />
+	</bean>
+	<bean id="busPaymentMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.holley.wxcharging.dao.bus.BusPaymentMapper" />
+	</bean>
+	<bean id="busRechargeMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.holley.wxcharging.dao.bus.BusRechargeMapper" />
+	</bean>
+	<bean id="busUserMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.holley.wxcharging.dao.bus.BusUserMapper" />
+	</bean>
+	<bean id="busUserWechatMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.holley.wxcharging.dao.bus.BusUserWechatMapper" />
+	</bean>
+	<bean id="busUserInfoMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.holley.wxcharging.dao.bus.BusUserInfoMapper" />
+	</bean>
+	<bean id="busBikePaymentMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.holley.wxcharging.dao.bus.BusBikePaymentMapper" />
+	</bean>
+	<bean id="busAccountLogMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.holley.wxcharging.dao.bus.BusAccountLogMapper" />
+	</bean>
+	<bean id="busChargeRuleMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.holley.wxcharging.dao.bus.BusChargeRuleMapper" />
+	</bean>
+	<bean id="pobChargingPileMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.holley.wxcharging.dao.pob.PobChargingPileMapper" />
+	</bean>
+	<bean id="pobChargingStationMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.holley.wxcharging.dao.pob.PobChargingStationMapper" />
+	</bean>
+	<bean id="sysAccountroleMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.holley.wxcharging.dao.sys.SysAccountroleMapper" />
+	</bean>
+</beans>

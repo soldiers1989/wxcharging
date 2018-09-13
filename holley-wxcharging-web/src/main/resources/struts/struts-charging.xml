@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC  
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"  
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+    <!--充电相关  -->
+	<package name="charging" namespace="/charging" extends="struts-default">
+		 <!--扫码充电 -->
+		<action name="charging" class="chargingAction" method="charging">
+			<result name="success">/jsp/charging/charging.jsp</result>
+		</action>
+		 <!--充电过程 -->
+		<action name="chargingProcess" class="chargingAction" method="chargingProcess">
+			<result name="success">/jsp/charging/chargingProcess.jsp</result>
+		</action>
+		 <!--充电过程数据 -->
+		<action name="chargingProcessData" class="chargingAction" method="chargingProcessData">
+			<result name="success">/jsp/charging/chargingProcessData.jsp</result>
+		</action>
+	</package>
+	
+	
+	<!-- 充电相关json -->
+	<package name="charging_json" namespace="/charging" extends="json-base">
+		<action name="charging_*" class="chargingAction" method="{1}">
+			<result type="json">
+				<param name="root">wxChargingResultBean</param>  
+			</result>
+		</action>
+	</package>
+</struts>

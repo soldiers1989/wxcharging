@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC  
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"  
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<!--支付相关  -->
+	<package name="pay" namespace="/pay" extends="struts-default">
+		<!--充电支付  -->
+		<action name="initPaymentPage" class="payAction" method="initPaymentPage">
+			<result name="success">/jsp/pay/initPaymentPage.jsp</result>
+		</action>
+		<!--充值支付  -->
+		<action name="initRechargePage" class="payAction" method="initRechargePage">
+			<result name="success">/jsp/pay/initRechargePage.jsp</result>
+		</action>
+	</package>
+
+	<package name="wechat" namespace="/wechat" extends="struts-default">
+		<action name="qrcode" class="wechatAction" method="qrcode">
+			<result name="msg">/jsp/common/msg.jsp</result>
+		</action>
+	</package>
+
+	<!-- 支付相关json -->
+	<package name="pay_json" namespace="/pay" extends="json-base">
+		<action name="pay_*" class="payAction" method="{1}">
+			<result type="json">
+				<param name="root">wxChargingResultBean</param>   
+			</result>
+		</action>
+	</package>
+	<!-- 微信相关json -->
+    <package name="wechat_json" namespace="/wechat" extends="json-default">
+        <action name="wechat_*" class="wechatAction" method="{1}">
+            <result type="json">
+                <param name="root">wxChargingResultBean</param>   
+            </result>
+        </action>
+    </package>
+</struts>

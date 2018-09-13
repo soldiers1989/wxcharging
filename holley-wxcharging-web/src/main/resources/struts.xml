@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC  
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"  
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="json-base" namespace="/" extends="json-default">
+		<interceptors>
+			<interceptor name="jsonInterceptor"
+				class="com.holley.wxcharging.web.interceptor.JsonInterceptor">
+			</interceptor>
+			<interceptor-stack name="jsonDefault">
+				<interceptor-ref name="defaultStack"/>
+				<interceptor-ref name="json"/>
+				<interceptor-ref name="jsonInterceptor"/>
+			</interceptor-stack>
+		</interceptors>
+		<!-- 默认拦截器栈配置 -->
+		<default-interceptor-ref name="jsonDefault"/>
+		<global-results>
+			<result name="errorjson" type="json">
+			  <param name="root">wxChargingResultBean</param>     
+			</result>
+		</global-results>
+	</package>
+	
+	<include file="struts/struts-*.xml" />
+</struts>

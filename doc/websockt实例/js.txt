@@ -1,0 +1,45 @@
+<script type="text/javascript">  
+    var webSocket;  
+    if ('WebSocket' in window) {
+        webSocket = new WebSocket("ws://127.0.0.1:8081/wxcharging/ws/websocket");  
+    } else if ('MozWebSocket' in window) {  
+        webSocket = new MozWebSocket("ws://localhost:8081/websocket");  
+    } else {
+        alert("js");  
+        webSocket = new SockJS("http://localhost:8081/Origami/sockjs/webSocketServer");  
+    }  
+   
+    webSocket.onerror = function(event) {  
+      onError(event)  
+    };  
+   
+    webSocket.onopen = function(event) {  
+      onOpen(event)  
+    };  
+   
+    webSocket.onmessage = function(event) {  
+      onMessage(event)  
+    };  
+   
+    webSocket.onclose = function(){
+      alert("close")
+    }
+    function onMessage(event) {  
+      document.getElementById('messages').innerHTML  
+        += '<br />' + event.data;  
+    }  
+   
+    function onOpen(event) {  
+     alert("open")
+    }  
+   
+    function onError(event) {  
+        console.log(event);  
+        console.log(event.data);  
+      alert(event.data);  
+    }  
+    function start() {  
+      webSocket.send('hello');  
+      return false;  
+    } 
+  </script>  
